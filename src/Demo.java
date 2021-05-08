@@ -7,5 +7,6 @@ public class Demo {
         s1.add(200);
         s1.add(300);
         s1.print();
+        System.out.println(s1.size());
     }
 }

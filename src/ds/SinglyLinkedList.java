@@ -27,16 +27,22 @@ public class SinglyLinkedList {
         System.out.println("\b\b]");
     }
     public void clear(){
-
+        top = null;
     }
-    public void size(){
-
+    public int size(){
+        int count = 0;
+        Node temp = top;
+        while (temp!=null){
+            count++;
+            temp = temp.next;
+        }
+        return count;
     }
     public boolean contains(int num){
         return false;
     }
     public boolean isEmpty(){
-        return false;
+        return top==null;
     }
 
     private class Node{
