@@ -5,7 +5,7 @@ public class SinglyLinkedList {
 
     public void add(int data){
         Node n1 = new Node(data);
-        if(front==null){
+        if(isEmpty()){
             front = n1;
         }else{
             Node lastNode = front;
@@ -23,16 +23,18 @@ public class SinglyLinkedList {
         for (int i = 0; i < index-1; i++) {
             temp = temp.next;
         }
-        System.out.println(temp.data);
         Node temp1 = front;
         for (int i = 0; i < index; i++) {
             temp1 = temp1.next;
         }
         temp.next = temp1.next;
-        System.out.println(temp1.data);
     }
     public int get(int index){
-        return 0;
+        Node temp = front;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp.data;
     }
     public void print(){
         System.out.print("[");
@@ -56,6 +58,13 @@ public class SinglyLinkedList {
         return count;
     }
     public boolean contains(int num){
+        Node temp = front;
+        while (temp!=null){
+            if(num==temp.data){
+                return true;
+            }
+            temp=temp.next;
+        }
         return false;
     }
     public boolean isEmpty(){
