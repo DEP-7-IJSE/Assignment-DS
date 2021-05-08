@@ -22,10 +22,7 @@ public class SinglyLinkedList {
             for (int i = 0; i < index-1; i++) {
                 temp = temp.next;
             }
-            Node temp1 = front;
-            for (int i = 0; i < index; i++) {
-                temp1 = temp1.next;
-            }
+            Node temp1 = searchNode(index);
             temp.next=n1;
             temp.next.next = temp1;
         }

@@ -22,6 +22,5 @@ public class Demo {
         s1.print();
         System.out.println(s1.get(2));
         System.out.println(s1.contains(100));
-        s1.add(100,100);
     }
 }
