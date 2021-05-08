@@ -38,22 +38,14 @@ public class SinglyLinkedList {
             for (int i = 0; i < index-1; i++) {
                 temp = temp.next;
             }
-            Node temp1 = front;
-            for (int i = 0; i < index; i++) {
-                temp1 = temp1.next;
-            }
-            temp.next  = temp1.next;
+            temp.next  = searchNode(index).next;
         }
     }
     public int get(int index){
         if(size()<index || index<0){
             throw new RuntimeException("Invalid Index");
         }
-        Node temp = front;
-        for (int i = 0; i < index; i++) {
-            temp = temp.next;
-        }
-        return temp.data;
+        return searchNode(index).data;
     }
     public void print(){
         System.out.print("[");
@@ -76,7 +68,7 @@ public class SinglyLinkedList {
         }
         return count;
     }
-    public boolean contains(int num){
+    public boolean contains (int num){
         Node temp = front;
         while (temp!=null){
             if(num==temp.data){
@@ -88,6 +80,14 @@ public class SinglyLinkedList {
     }
     public boolean isEmpty(){
         return front==null;
+    }
+
+    private Node searchNode(int index){
+        Node temp = front;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
     }
     private class Node{
         private int data;
