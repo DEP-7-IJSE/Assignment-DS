@@ -8,11 +8,7 @@ public class SinglyLinkedList {
         if(isEmpty()){
             front = n1;
         }else{
-            Node lastNode = front;
-            while (lastNode.next!=null){
-                lastNode = lastNode.next;
-            }
-            lastNode.next = n1;
+            add(size(),data);
         }
     }
     public void add(int index, int data){

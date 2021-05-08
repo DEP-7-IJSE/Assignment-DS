@@ -23,5 +23,7 @@ public class Demo {
         s1.print();
         s1.add(5,60);
         s1.print();
+        s1.add(80);
+        s1.print();
     }
 }
