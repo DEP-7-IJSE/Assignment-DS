@@ -1,7 +1,7 @@
 package ds;
 
 public class SinglyLinkedList {
-    Node front;
+    private Node front;
 
     public void add(int data){
         Node n1 = new Node(data);
@@ -16,7 +16,17 @@ public class SinglyLinkedList {
         }
     }
     public void add(int index, int data){
-
+        Node n1 = new Node(data);
+        Node temp = front;
+        for (int i = 0; i < index-1; i++) {
+            temp = temp.next;
+        }
+        Node temp1 = front;
+        for (int i = 0; i < index; i++) {
+            temp1 = temp1.next;
+        }
+        temp.next=n1;
+        temp.next.next = temp1;
     }
     public void remove(int index){
         Node temp = front;
