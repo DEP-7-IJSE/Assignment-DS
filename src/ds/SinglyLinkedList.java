@@ -12,30 +12,43 @@ public class SinglyLinkedList {
         }
     }
     public void add(int index, int data){
-        Node n1 = new Node(data);
-        Node temp = front;
-        for (int i = 0; i < index-1; i++) {
-            temp = temp.next;
+        if(size()<index || index<0){
+            System.err.println("Invalid Index");
+        }else if(index==0){
+            add(data);
+        }else{
+            Node n1 = new Node(data);
+            Node temp = front;
+            for (int i = 0; i < index-1; i++) {
+                temp = temp.next;
+            }
+            Node temp1 = front;
+            for (int i = 0; i < index; i++) {
+                temp1 = temp1.next;
+            }
+            temp.next=n1;
+            temp.next.next = temp1;
         }
-        Node temp1 = front;
-        for (int i = 0; i < index; i++) {
-            temp1 = temp1.next;
-        }
-        temp.next=n1;
-        temp.next.next = temp1;
     }
     public void remove(int index){
-        Node temp = front;
-        for (int i = 0; i < index-1; i++) {
-            temp = temp.next;
+        if(size()<=index || index<0 || isEmpty()){
+            System.err.println("Invalid Index");
+        }else{
+            Node temp = front;
+            for (int i = 0; i < index-1; i++) {
+                temp = temp.next;
+            }
+            Node temp1 = front;
+            for (int i = 0; i < index; i++) {
+                temp1 = temp1.next;
+            }
+            temp.next  = temp1.next;
         }
-        Node temp1 = front;
-        for (int i = 0; i < index; i++) {
-            temp1 = temp1.next;
-        }
-        temp.next = temp1.next;
     }
     public int get(int index){
+        if(size()<index || index<0){
+            throw new RuntimeException("Invalid Index");
+        }
         Node temp = front;
         for (int i = 0; i < index; i++) {
             temp = temp.next;
@@ -49,7 +62,7 @@ public class SinglyLinkedList {
             System.out.print(temp.data+", ");
             temp = temp.next;
         }
-        System.out.println("\b\b]");
+        System.out.println(isEmpty() ? "Empty]":"\b\b]");
     }
     public void clear(){
         front = null;
@@ -76,7 +89,6 @@ public class SinglyLinkedList {
     public boolean isEmpty(){
         return front==null;
     }
-
     private class Node{
         private int data;
         private Node next;

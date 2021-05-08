@@ -15,15 +15,8 @@ public class Demo {
         s1.print();
         s1.remove(2);
         s1.print();
-        s1.remove(4);
-        s1.print();
-        System.out.println(s1.get(3));
-        System.out.println(s1.contains(70));
-        s1.add(2,30);
-        s1.print();
-        s1.add(5,60);
-        s1.print();
-        s1.add(80);
+        System.out.println(s1.size());
+        s1.remove(6);
         s1.print();
     }
 }
